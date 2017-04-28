@@ -6,4 +6,6 @@
     <string name="btnCardDeck">Kartendeck</string>
     <string name="btnStopwatch">Stoppuhr</string>
     <string name="btnCountdown">Countdown</string>
+    <string name="btnCreateGroup">Eine Gruppe erstellen</string>
+    <string name="btnJoinGroup">Einer Gruppe beitreten</string>
 </resources>

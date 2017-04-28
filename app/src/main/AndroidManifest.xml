@@ -2,6 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="fes.profession.partygamecompanion">
 
+    <uses-permission
+        android:name="android.permission.ACCESS_WIFI_STATE"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.CHANGE_WIFI_STATE"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.INTERNET"
+        android:required="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,6 +26,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".BottleActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".BottleCreateGroupActivity"
+            android:parentActivityName=".BottleActivity" />
+        <activity
+            android:name=".BottleJoinGroupActivity"
+            android:parentActivityName=".BottleActivity"></activity>
+
     </application>
 
 </manifest>
