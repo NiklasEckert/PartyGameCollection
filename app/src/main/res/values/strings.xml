@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PartyGameCompanion</string>
+    <string name="btnBottle">Flaschendrehen</string>
+    <string name="btnDice">Würfeln</string>
+    <string name="btnCoin">Münzwerfen</string>
+    <string name="btnCardDeck">Kartendeck</string>
+    <string name="btnStopwatch">Stoppuhr</string>
+    <string name="btnCountdown">Countdown</string>
+</resources>
