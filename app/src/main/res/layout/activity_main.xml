@@ -7,7 +7,7 @@
     tools:context="fes.profession.partygamecompanion.MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_bottle"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -18,13 +18,13 @@
         android:layout_marginTop="16dp"
         android:onClick="startBottle"
         android:text="@string/btnBottle"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/btn_coin"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/button2"
+        app:layout_constraintRight_toLeftOf="@+id/btn_dice"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_dice"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -34,13 +34,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="@string/btnDice"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintLeft_toRightOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/btn_cardDeck"
+        app:layout_constraintLeft_toRightOf="@+id/btn_bottle"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_coin"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -50,13 +50,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="@string/btnCoin"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintBottom_toTopOf="@+id/btn_stopwatch"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/button4"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintRight_toLeftOf="@+id/btn_cardDeck"
+        app:layout_constraintTop_toBottomOf="@+id/btn_bottle" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btn_cardDeck"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -66,13 +66,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/btnCardDeck"
-        app:layout_constraintBottom_toTopOf="@+id/button6"
-        app:layout_constraintLeft_toRightOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/btn_countdown"
+        app:layout_constraintLeft_toRightOf="@+id/btn_coin"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_dice" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btn_stopwatch"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"
@@ -84,11 +84,11 @@
         android:text="@string/btnStopwatch"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/button6"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintRight_toLeftOf="@+id/btn_countdown"
+        app:layout_constraintTop_toBottomOf="@+id/btn_coin" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btn_countdown"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"
@@ -99,7 +99,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/btnCountdown"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/button5"
+        app:layout_constraintLeft_toRightOf="@+id/btn_stopwatch"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_cardDeck" />
 </android.support.constraint.ConstraintLayout>
