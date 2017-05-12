@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="fes.profession.partygamecompanion">
 
-    <uses-sdk android:minSdkVersion="14" />
+    <uses-sdk android:minSdkVersion="16" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -34,7 +34,7 @@
             android:parentActivityName=".BottleActivity" />
 
         <receiver
-            android:name=".WifiDirectBroadcastReceiver"
+            android:name=".WifiDirectBroadcastReceiverAlt"
             android:enabled="true"
             android:exported="true"></receiver>
     </application>

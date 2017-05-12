@@ -8,4 +8,5 @@
     <string name="btnCountdown">Countdown</string>
     <string name="btnCreateGroup">Eine Gruppe erstellen</string>
     <string name="btnJoinGroup">Einer Gruppe beitreten</string>
+    <string name="btn_connect">Connect</string>
 </resources>
