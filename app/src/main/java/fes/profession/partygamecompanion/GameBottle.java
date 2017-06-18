@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.Random;
 
 /**
  * Created by Niklas on 12.05.2017.
@@ -62,6 +63,17 @@ public class GameBottle implements Runnable {
             oStream.write(buffer);
         } catch (IOException e) {
             Log.e(TAG, "Exception during wirte", e);
+        }
+    }
+
+    public boolean chooseLooser() {
+        Random r = new Random();
+        int choosen = r.nextInt(2);
+        sendTick(Integer.toString(choosen).getBytes());
+        if (choosen == 1) {
+            return true;
+        } else {
+            return false;
         }
     }
 }

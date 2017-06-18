@@ -9,4 +9,10 @@
     <string name="btnCreateGroup">Eine Gruppe erstellen</string>
     <string name="btnJoinGroup">Einer Gruppe beitreten</string>
     <string name="btn_connect">Connect</string>
+    <string name="btn_rotate">Rotieren</string>
+    <string name="btn_start_dice">Würfeln</string>
+    <string name="btn_start_stopwatch">Start</string>
+    <string name="btn_stop_stopwatch">Stop</string>
+    <string name="tv_stopwatch">0:00:00</string>
+    <string name="tv_countdown">0:00:00</string>
 </resources>

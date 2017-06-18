@@ -1,9 +1,12 @@
 package fes.profession.partygamecompanion;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.IntentFilter;
+import android.net.wifi.WpsInfo;
+import android.net.wifi.p2p.WifiP2pConfig;
 import android.net.wifi.p2p.WifiP2pDevice;
 import android.net.wifi.p2p.WifiP2pInfo;
 import android.net.wifi.p2p.WifiP2pManager;
@@ -16,8 +19,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class BottleJoinGroupActivity extends Activity implements
         WiFiDirectServicesList.DeviceClickListener, Handler.Callback, BottleGameFragment.TickTarget,
@@ -60,9 +67,52 @@ public class BottleJoinGroupActivity extends Activity implements
         channel = manager.initialize(this, getMainLooper(), null);
         startRegistrationAndDiscovery();
 
+        statusTxtView = (TextView) findViewById(R.id.flaschendrehen_status);
+
         servicesList = new WiFiDirectServicesList();
         getFragmentManager().beginTransaction().add(R.id.container_root, servicesList, "services").commit();
     }
+
+    @Override
+    protected void onRestart() {
+        Fragment frag = getFragmentManager().findFragmentByTag("services");
+        if (frag != null) {
+            getFragmentManager().beginTransaction().remove(frag).commit();
+        }
+        super.onRestart();
+    }
+
+    @Override
+    protected void onStop() {
+        if (manager != null && channel != null) {
+            manager.removeGroup(channel, new WifiP2pManager.ActionListener() {
+                @Override
+                public void onSuccess() {
+
+                }
+
+                @Override
+                public void onFailure(int reason) {
+                    Log.d(TAG, "Disconnect failed. Reason: "+reason);
+                }
+            });
+        }
+        super.onStop();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        receiver = new WifiDirectBroadcastReceiver(manager, channel, this);
+        registerReceiver(receiver, intentFilter);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        unregisterReceiver(receiver);
+    }
+
 
     public void startRegistrationAndDiscovery() {
         Map<String, String> record = new HashMap<String, String>();
@@ -107,9 +157,31 @@ public class BottleJoinGroupActivity extends Activity implements
             public void onDnsSdTxtRecordAvailable(
                     String fullDomainName, Map<String, String> record,
                     WifiP2pDevice device) {
-                Log.d(TAG,
-                        device.deviceName + " is "
-                                + record.get(TXTRECORD_PROP_AVAILABLE));
+                Log.d(TAG, device.deviceName + " is " + record.get(TXTRECORD_PROP_AVAILABLE));
+            }
+        });
+
+        serviceRequest = WifiP2pDnsSdServiceRequest.newInstance();
+        manager.addServiceRequest(channel, serviceRequest, new WifiP2pManager.ActionListener() {
+            @Override
+            public void onSuccess() {
+                appendStatus("Added service discovery request");
+            }
+
+            @Override
+            public void onFailure(int reason) {
+                appendStatus("Failed adding service discovery request");
+            }
+        });
+        manager.discoverServices(channel, new WifiP2pManager.ActionListener() {
+            @Override
+            public void onSuccess() {
+                appendStatus("Service discovery initiated");
+            }
+
+            @Override
+            public void onFailure(int reason) {
+                appendStatus("Service discovery failed");
             }
         });
 
@@ -122,21 +194,80 @@ public class BottleJoinGroupActivity extends Activity implements
 
     @Override
     public void onConnectionInfoAvailable(WifiP2pInfo info) {
-
+        Thread handler = null;
+        if (info.isGroupOwner) {
+            Log.d(TAG, "Connected as group owner");
+            try {
+                handler = new GroupOwnerSocketHandler(((BottleGameFragment.TickTarget) this).getHandler());
+                handler.start();
+            } catch (IOException e) {
+                Log.d(TAG, "Failed to create a server thread - "+e.getMessage());
+                return;
+            }
+        } else {
+            Log.d(TAG, "Connected as peer");
+            handler = new ClientSocketHandler(((BottleGameFragment.TickTarget) this).getHandler(), info.groupOwnerAddress);
+            handler.start();
+        }
+        bottleGameFragment = new BottleGameFragment();
+        getFragmentManager().beginTransaction().replace(R.id.container_root, bottleGameFragment).commit();
     }
 
     @Override
     public boolean handleMessage(Message msg) {
-        return false;
+        switch (msg.what) {
+            case MESSAGE_READ:
+                byte[] readBuf = (byte[]) msg.obj;
+                String readMessage = new String(readBuf, 0, msg.arg1);
+                Log.d(TAG, readMessage);
+                if (readMessage == "1") {
+                    (bottleGameFragment).showGameResult(false);
+                } else {
+                    (bottleGameFragment).showGameResult(true);
+                }
+                break;
+            case MY_HANDLE:
+                Object obj = msg.obj;
+                (bottleGameFragment).setGameBottle((GameBottle) obj);
+        }
+        return true;
     }
 
     @Override
     public void connectP2p(WiFiP2pService wiFiP2pService) {
+        WifiP2pConfig config = new WifiP2pConfig();
+        config.deviceAddress = wiFiP2pService.device.deviceAddress;
+        config.wps.setup = WpsInfo.PBC;
+        if (serviceRequest != null) {
+            manager.removeServiceRequest(channel, serviceRequest, new WifiP2pManager.ActionListener() {
+                @Override
+                public void onSuccess() {
 
+                }
+
+                @Override
+                public void onFailure(int reason) {
+
+                }
+            });
+        }
+        manager.connect(channel, config, new WifiP2pManager.ActionListener() {
+            @Override
+            public void onSuccess() {
+
+                appendStatus("Connecting to service");
+            }
+
+            @Override
+            public void onFailure(int reason) {
+                appendStatus("Failed connecting to service");
+            }
+        });
     }
 
     @Override
     public Handler getHandler() {
-        return null;
+        return handler;
     }
+
 }

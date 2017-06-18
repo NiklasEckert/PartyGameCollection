@@ -7,6 +7,7 @@ import android.net.wifi.p2p.WifiP2pManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +23,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void startBottle(View view) {
         Intent intent = new Intent(this, BottleActivity.class);
+        startActivity(intent);
+    }
+
+    public void startDice(View view) {
+        Intent intent = new Intent(this, DiceActivity.class);
+        startActivity(intent);
+    }
+
+    public void startStopwatch(View view) {
+        Intent intent = new Intent(this, StopwatchActivity.class);
+        startActivity(intent);
+    }
+
+    public void startCountdown(View view) {
+        Intent intent = new Intent(this, CountdownActivity.class);
         startActivity(intent);
     }
 }

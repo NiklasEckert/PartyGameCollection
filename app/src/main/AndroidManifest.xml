@@ -3,11 +3,15 @@
     package="fes.profession.partygamecompanion">
 
     <uses-sdk android:minSdkVersion="16" />
+
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -36,7 +40,11 @@
         <receiver
             android:name=".WifiDirectBroadcastReceiverAlt"
             android:enabled="true"
-            android:exported="true"></receiver>
+            android:exported="true" />
+
+        <activity android:name=".DiceActivity" />
+        <activity android:name=".StopwatchActivity" />
+        <activity android:name=".CountdownActivity"></activity>
     </application>
 
 </manifest>
