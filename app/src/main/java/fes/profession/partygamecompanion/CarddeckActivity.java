@@ -50,10 +50,10 @@ public class CarddeckActivity extends AppCompatActivity {
     private void drawCard() {
         int cardType = r.nextInt(4);
         switch (cardType) {
-            case 0: imageView.setImageResource(R.drawable.herz);break;
-            case 1: imageView.setImageResource(R.drawable.karo);break;
-            case 2: imageView.setImageResource(R.drawable.pik);break;
-            case 3: imageView.setImageResource(R.drawable.kreuz);break;
+            case 0: imageView.setImageResource(R.drawable.herz); break;
+            case 1: imageView.setImageResource(R.drawable.karo); break;
+            case 2: imageView.setImageResource(R.drawable.pik); break;
+            case 3: imageView.setImageResource(R.drawable.kreuz); break;
         }
 
         int cardValue = r.nextInt(13);
