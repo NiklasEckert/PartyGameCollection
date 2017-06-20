@@ -4,7 +4,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/iv_bottle"
+        android:id="@+id/iv_bottle_single"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -14,7 +14,7 @@
         android:visibility="visible" />
 
     <Button
-        android:id="@+id/btn_rotate"
+        android:id="@+id/btn_rotate_single"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

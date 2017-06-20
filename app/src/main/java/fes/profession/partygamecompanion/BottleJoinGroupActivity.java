@@ -198,7 +198,7 @@ public class BottleJoinGroupActivity extends Activity implements
         if (info.isGroupOwner) {
             Log.d(TAG, "Connected as group owner");
             try {
-                handler = new GroupOwnerSocketHandler(((BottleGameFragment.TickTarget) this).getHandler());
+                handler = new GroupOwnerSocketHandler(this.getHandler());
                 handler.start();
             } catch (IOException e) {
                 Log.d(TAG, "Failed to create a server thread - "+e.getMessage());
@@ -206,7 +206,7 @@ public class BottleJoinGroupActivity extends Activity implements
             }
         } else {
             Log.d(TAG, "Connected as peer");
-            handler = new ClientSocketHandler(((BottleGameFragment.TickTarget) this).getHandler(), info.groupOwnerAddress);
+            handler = new ClientSocketHandler(this.getHandler(), info.groupOwnerAddress);
             handler.start();
         }
         bottleGameFragment = new BottleGameFragment();

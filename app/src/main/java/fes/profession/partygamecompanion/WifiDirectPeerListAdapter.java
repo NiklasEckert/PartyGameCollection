@@ -41,7 +41,7 @@ public class WifiDirectPeerListAdapter extends ArrayAdapter<WifiP2pDevice> {
                 top.setText(device.deviceName);
             }
             if (bot != null) {
-                bot.setText(deviceListFragment.getDeviceStatus(device.status));
+                bot.setText(DeviceListFragment.getDeviceStatus(device.status));
             }
         }
         return  v;

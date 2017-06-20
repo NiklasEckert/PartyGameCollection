@@ -80,7 +80,7 @@ public class BottleGameFragment extends Fragment {
     }
 
     public interface TickTarget {
-        public Handler getHandler();
+        Handler getHandler();
     }
 
     public void pushTick(String readMessage) {

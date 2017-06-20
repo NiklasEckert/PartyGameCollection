@@ -70,10 +70,6 @@ public class GameBottle implements Runnable {
         Random r = new Random();
         int choosen = r.nextInt(2);
         sendTick(Integer.toString(choosen).getBytes());
-        if (choosen == 1) {
-            return true;
-        } else {
-            return false;
-        }
+        return choosen == 1;
     }
 }

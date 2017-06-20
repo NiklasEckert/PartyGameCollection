@@ -101,7 +101,7 @@ public class DeviceListFragment extends ListFragment implements PeerListListener
         peers.addAll(peerList.getDeviceList());
         ((WifiDirectPeerListAdapter) getListAdapter()).notifyDataSetChanged();
         if (peers.size() == 0) {
-            Log.d(BottleCreateGroupActivity.TAG, "No devices found");
+            //Log.d(BottleCreateGroupActivity.TAG, "No devices found");
             return;
         }
     }
@@ -126,7 +126,7 @@ public class DeviceListFragment extends ListFragment implements PeerListListener
     }
 
     public static String getDeviceStatus(int deviceStatus) {
-        Log.d(BottleCreateGroupActivity.TAG, "Peer status: "+deviceStatus);
+        //Log.d(BottleCreateGroupActivity.TAG, "Peer status: "+deviceStatus);
         switch (deviceStatus) {
             case WifiP2pDevice.AVAILABLE:
                 return "Available";

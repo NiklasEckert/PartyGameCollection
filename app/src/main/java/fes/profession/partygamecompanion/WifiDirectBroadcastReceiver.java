@@ -34,7 +34,7 @@ public class WifiDirectBroadcastReceiver extends BroadcastReceiver {
             if (manager == null) {
                 return;
             }
-            NetworkInfo networkInfo = (NetworkInfo) intent.getParcelableExtra(WifiP2pManager.EXTRA_NETWORK_INFO);
+            NetworkInfo networkInfo = intent.getParcelableExtra(WifiP2pManager.EXTRA_NETWORK_INFO);
             if (networkInfo.isConnected()) {
                 Log.d(BottleJoinGroupActivity.TAG, "Connected to p2p network. Request network details");
                 manager.requestConnectionInfo(channel, (WifiP2pManager.ConnectionInfoListener) activity);
@@ -42,7 +42,7 @@ public class WifiDirectBroadcastReceiver extends BroadcastReceiver {
 
             }
         }  else if (WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION.equals(action)) {
-            WifiP2pDevice device = (WifiP2pDevice) intent.getParcelableExtra(WifiP2pManager.EXTRA_WIFI_P2P_DEVICE);
+            WifiP2pDevice device = intent.getParcelableExtra(WifiP2pManager.EXTRA_WIFI_P2P_DEVICE);
             Log.d(BottleJoinGroupActivity.TAG, "Device status -"+device.status);
         }
     }

@@ -33,30 +33,30 @@ public class WifiDirectBroadcastReceiverAlt extends BroadcastReceiver {
         if (WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION.equals(action)) {
             int state = intent.getIntExtra(WifiP2pManager.EXTRA_WIFI_STATE, -1);
             if (state == WifiP2pManager.WIFI_P2P_STATE_ENABLED) {
-                mActivity.setIsWifiP2pEnabled(true);
+                //mActivity.setIsWifiP2pEnabled(true);
             } else {
-                mActivity.setIsWifiP2pEnabled(false);
-                mActivity.resetData();
+                //mActivity.setIsWifiP2pEnabled(false);
+                //mActivity.resetData();
             }
-            Log.d(mActivity.TAG, "P2P peers changed - "+state);
+            //Log.d(mActivity.TAG, "P2P peers changed - "+state);
         } else if (WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION.equals(action)) {
 
             if (mManager != null) {
                 mManager.requestPeers(mChannel, (PeerListListener) mActivity.getFragmentManager().findFragmentById(R.id.frag_list));
             }
-            Log.d(BottleCreateGroupActivity.TAG, "P2P peers changed");
+            //Log.d(BottleCreateGroupActivity.TAG, "P2P peers changed");
         } else if (WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION.equals(action)) {
 
             if (mManager == null) {
                 return;
             }
-            NetworkInfo networkInfo = (NetworkInfo) intent.getParcelableExtra(WifiP2pManager.EXTRA_NETWORK_INFO);
+            NetworkInfo networkInfo = intent.getParcelableExtra(WifiP2pManager.EXTRA_NETWORK_INFO);
 
             if (networkInfo.isConnected()) {
                 DeviceListFragment deviceListFragment = (DeviceListFragment) mActivity.getFragmentManager().findFragmentById(R.id.frag_list);
                 mManager.requestConnectionInfo(mChannel, deviceListFragment);
             } else {
-                mActivity.resetData();
+                //mActivity.resetData();
             }
         } else if (WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION.equals(action)) {
             DeviceListFragment fragment = (DeviceListFragment) mActivity.getFragmentManager().findFragmentById(R.id.frag_list);
