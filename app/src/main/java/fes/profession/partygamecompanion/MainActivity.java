@@ -40,4 +40,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CountdownActivity.class);
         startActivity(intent);
     }
+
+    public void startCoin(View view) {
+        Intent intent = new Intent(this, CoinActivity.class);
+        startActivity(intent);
+    }
+
+    public void startCarddeck(View view) {
+        Intent intent = new Intent(this, CarddeckActivity.class);
+        startActivity(intent);
+    }
 }

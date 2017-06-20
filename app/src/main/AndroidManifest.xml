@@ -44,7 +44,9 @@
 
         <activity android:name=".DiceActivity" />
         <activity android:name=".StopwatchActivity" />
-        <activity android:name=".CountdownActivity"></activity>
+        <activity android:name=".CountdownActivity" />
+        <activity android:name=".CoinActivity" />
+        <activity android:name=".CarddeckActivity"></activity>
     </application>
 
 </manifest>
