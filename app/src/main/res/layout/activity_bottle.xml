@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context="fes.profession.partygamecompanion.BottleActivity">
 
     <Button
         android:id="@+id/btn_createGroup"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/button_singleplayer"
         android:onClick="startBottleCreateGroup"
-        android:text="@string/btnCreateGroup"
         app:layout_constraintBottom_toTopOf="@+id/btn_joinGroup"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -25,14 +27,15 @@
 
     <Button
         android:id="@+id/btn_joinGroup"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/button_multiplayer"
         android:onClick="startBottleJoinGroup"
-        android:text="@string/btnJoinGroup"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"

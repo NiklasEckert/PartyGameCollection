@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.wifi.p2p.WifiP2pManager;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;

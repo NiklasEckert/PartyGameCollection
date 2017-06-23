@@ -9,7 +9,7 @@
     <string name="btnCreateGroup">Einzelspieler</string>
     <string name="btnJoinGroup">Mehrspieler</string>
     <string name="btn_connect">Connect</string>
-    <string name="btn_rotate">Rotieren</string>
+    <string name="btn_rotate">Flasche drehen</string>
     <string name="btn_start_dice">Würfeln</string>
     <string name="btn_start_stopwatch">Start</string>
     <string name="btn_stop_stopwatch">Stop</string>

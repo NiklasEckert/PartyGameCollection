@@ -29,7 +29,7 @@
             android:cropToPadding="false"
             android:scaleType="centerInside"
             android:visibility="visible"
-            app:srcCompat="@drawable/iv_bottle"
+            app:srcCompat="@drawable/iv_bottle_old"
             tools:layout_editor_absoluteX="92dp"
             tools:layout_editor_absoluteY="155dp" />
 

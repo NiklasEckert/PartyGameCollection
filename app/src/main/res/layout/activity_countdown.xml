@@ -11,29 +11,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:ems="10"
         android:inputType="number"
         android:maxLength="15"
         android:maxLines="1"
         android:text="Name"
         app:layout_constraintBottom_toTopOf="@+id/tv_coutdown"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
         android:id="@+id/tv_coutdown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:text="@string/tv_countdown"
         android:textSize="30sp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_startStop_Countdown"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:id="@+id/btn_startStop_Countdown"

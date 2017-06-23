@@ -27,16 +27,16 @@ public class CoinActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int coinSide = r.nextInt(2);
 
-                if (coinSide == 0) {
-                    imageView.setImageResource(R.drawable.coin_up);
-                } else {
-                    imageView.setImageResource(R.drawable.coin_down);
-                }
-
                 RotateAnimation rotateAnimation = new RotateAnimation(0, 3600,
                         RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
                 rotateAnimation.setDuration(3000);
                 imageView.startAnimation(rotateAnimation);
+
+                if (coinSide == 0) {
+                    imageView.setImageResource(R.drawable.muenze_vorne);
+                } else {
+                    imageView.setImageResource(R.drawable.muenze_hinten);
+                }
             }
         });
     }
